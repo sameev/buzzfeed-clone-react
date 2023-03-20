@@ -1,7 +1,9 @@
+import Title from './components/Title.jsx'
+
 const App = () => {
   return (
     <div className="App">
-      Hello World.
+      <Title />
     </div>
   );
 }
