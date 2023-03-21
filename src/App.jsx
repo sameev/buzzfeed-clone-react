@@ -14,7 +14,7 @@ const App = () => {
     try {
       const response = await fetch('http://localhost:8000/quiz');
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setQuiz(data);
     } catch (err) {
       console.log(err);
