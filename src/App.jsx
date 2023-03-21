@@ -28,8 +28,20 @@ const App = () => {
     setUnansweredQuestionIds(unansweredIds);
   }, [quiz]);
 
-  console.log(chosenAnswerItems);
-  console.log(unansweredQuestionIds)
+  useEffect(() => {
+    if(unansweredQuestionIds) {
+      if (unansweredQuestionIds.length <= 0 && chosenAnswerItems.length >= 1) {
+        //scroll to answer block
+      }
+      const highestUnansweredId = Math.min(...unansweredQuestionIds);
+      const highestUnansweredElement =
+      document.getElementById(highestUnansweredId);
+      highestUnansweredElement?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [unansweredQuestionIds, chosenAnswerItems]);
+
+  // console.log({chosenAnswerItems});
+  // console.log({unansweredQuestionIds});
 
   return (
     <div className='app'>
