@@ -75,3 +75,38 @@ p {
   font-size: 0.75rem;
   font-style: italic;
 }
+
+.answer-container {
+  margin: 1rem 0 1.438rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.answer-block {
+  background-color: rgb(255,255,255);
+  border-radius: 0.313rem;
+  box-shadow: rgba(0, 0, 0, 0.07) 0 0 0 0.063rem;
+  text-align: center;
+  margin-bottom: 0.938rem;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+}
+
+.answer-block img {
+  width: 35.5rem;
+  height: auto;
+  padding: 15px;
+}
+
+.answer-title {
+  width: 37.5rem;
+  height: 10.125rem;
+  background-color: rgb(100, 200, 125);
+  border-radius: 0.313rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255,255,255);
+}
