@@ -5,7 +5,7 @@ import QuestionsBlock from './components/QuestionsBlock.jsx';
 import AnswerBlock from './components/AnswerBlock.jsx';
 
 const App = () => {
-  const [quiz, setQuiz] = useState(false);
+  const [quiz, setQuiz] = useState(null);
   const [chosenAnswerItems, setChosenAnswerItems] = useState([]);
   const [unansweredQuestionIds, setUnansweredQuestionIds] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -34,13 +34,15 @@ const App = () => {
     if (unansweredQuestionIds) {
       if (unansweredQuestionIds.length <= 0 && chosenAnswerItems.length >= 1) {
         setShowAnswer(true);
+        const answerContainer = document.getElementById('answer-container');
+        answerContainer?.scrollIntoView({ behavior: 'smooth' });
       }
       const highestUnansweredId = Math.min(...unansweredQuestionIds);
       const highestUnansweredElement =
         document.getElementById(highestUnansweredId);
       highestUnansweredElement?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [unansweredQuestionIds, chosenAnswerItems]);
+  }, [unansweredQuestionIds, chosenAnswerItems, showAnswer]);
 
   // console.log(chosenAnswerItems);
   // console.log({unansweredQuestionIds});
@@ -59,12 +61,12 @@ const App = () => {
             setUnansweredQuestionIds={setUnansweredQuestionIds}
           />
         ))}
-        { showAnswer && (
-          <AnswerBlock
-            answerOptions={quiz?.answers}
-            chosenAnswers={chosenAnswerItems}
-          />
-        )}
+      {showAnswer && (
+        <AnswerBlock
+          answerOptions={quiz?.answers}
+          chosenAnswers={chosenAnswerItems}
+        />
+      )}
     </div>
   );
 };
